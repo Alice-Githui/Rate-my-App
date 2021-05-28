@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.generic.edit import CreateView
 from .models import Profile
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):

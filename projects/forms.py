@@ -11,5 +11,5 @@ class RegisterForm(UserCreationForm):
 class CreateProfile(forms.ModelForm):
     class Meta:
         model=Profile
-        # exclude=["name", "projects"]
+        exclude=["name", "projects"]
         fields=["bio", "profile_pic", "contact"]
