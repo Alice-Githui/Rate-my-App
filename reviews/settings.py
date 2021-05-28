@@ -82,8 +82,10 @@ WSGI_APPLICATION = 'reviews.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'reviews',
+        'USER':'githui',
+        'PASSWORD':'Kqcaptain#2',
     }
 }
 
@@ -119,6 +121,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+#login urls
+LOGIN_URL="login/"
+LOGIN_REDIRECT_URL="/"
 
 
 # Static files (CSS, JavaScript, Images)
