@@ -21,7 +21,7 @@ class Project(models.Model):
 
 
 class Profile(models.Model):
-    name=models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user=models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     bio=models.TextField()
     profile_pic=CloudinaryField('image')
     contact=models.TextField()
