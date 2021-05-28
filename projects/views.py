@@ -3,6 +3,6 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse('Welcome to Rate-my-Projects App')
+    return render(request, "projects/index.html", {})
 
 
