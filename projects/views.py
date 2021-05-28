@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .forms import RegisterForm, CreateProfile
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.views.generic.edit import CreateView
+from .models import Profile
 
 # Create your views here.
 def index(request):
@@ -50,15 +52,14 @@ def logoutUser(request):
     logout(request)
     return redirect('index')
 
-# def createProfile(request):
-#     form=CreateProfile()
+class CreateProfileView(CreateView):
+    model=Profile
+    form_class=CreateProfile
+    template_name='projects/create-profile.html'
 
-#     def form_valid(self, form):
-#         form.instance.user=self.request.user
-#         return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.user=self.request.user
+        return super().form_valid(form)
 
-#         return redirect('index')
-
-#     return render(request, 'projects/create-profile.html', {"form":form})
 
 

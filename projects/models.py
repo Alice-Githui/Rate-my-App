@@ -28,6 +28,9 @@ class Profile(models.Model):
     def __str__(self):
         return self.bio
 
+    def get_absolute_url(self):
+        return reverse('home')
+
 
 class Rating(models.Model):
     design=models.ForeignKey(Project, related_name="design_rated", on_delete=models.CASCADE)
