@@ -28,6 +28,7 @@ class Profile(models.Model):
     def __str__(self):
         return self.bio
 
+
 class Rating(models.Model):
     design=models.ForeignKey(Project, related_name="design_rated", on_delete=models.CASCADE)
     design_rate=models.IntegerField()
