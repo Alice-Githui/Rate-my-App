@@ -3,11 +3,11 @@
 {% load bootstrap3 %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid searchpage">
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <div class="row">
+            <div class="row" style="font-size: 18px;">
                 {% if projects %}
                 <p class="searchedmessage">Found {{projects|length}} of {{message}}</p>
                 {% else %}
@@ -19,7 +19,8 @@
                 <div class="col-md-4 project-card">
                     <img src="{{project.image.url}}">
                     <br>
-                    <p class="searchedmessage"><a href="{% url 'viewproject' project.id %}">View Project Details</a></p>                 
+                    <br>
+                    <button class="btn btn-success btn-block btn-lg"><a href="{% url 'viewproject' project.id %}" class="viewprojectbutton">View Project Details</a></button>                 
                 </div>
                 {% endfor %}
 
