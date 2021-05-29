@@ -92,3 +92,25 @@
     border-radius: 5px;
 }
 
+.indexprojects-card img{
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    margin-top: 30px;
+}
+
+.indexpage{
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+
+.viewprojectbutton{
+    color:white;
+}
+
+.indexpage h1{
+    /* border-bottom: 1px solid black; */
+    margin-bottom: 15px;
+}
+
+

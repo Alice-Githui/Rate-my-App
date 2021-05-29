@@ -3,17 +3,32 @@
 {% load static %}
 
 {% block content %}
-<div class="container-fluid">
-    <h1>RATE MY PROJECT APP</h1>
-    <div>
-        {% for project in projects %}
-        <p>{{project.title}}</p>
-        <p><a href="{{project.link}}">{{project.link}}</a></p>
-        <img src="{{project.image.url}}" alt="{{project.description}}">
-        <p>{{project.description}}</p>
-        <button><a href="{% url 'viewproject' project.id %}">View Project Details</a></button>
-        {% endfor %}
+<div class="container-fluid indexpage">
+    <div class="row">
+        <div class="col-md-0.5"></div>
+        <div class="col-md-11">
+            <div>
+                {% for project in projects %}
+                <div class="indexprojects-card col-md-4">
+                    <p>Project Title: {{project.title}}</p>
+                    <img src="{{project.image.url}}" alt="{{project.description}}">
+                    <br>
+                    <br>
+                    <button class="btn btn-success btn-lg btn-block"><a href="{% url 'viewproject' project.id %}"
+                            class="viewprojectbutton">VIEW PROJECT DETAILS</a></button>
+                    <p>Project Link: <a href="{{project.link}}">{{project.link}}</a></p>
+                    <p>Project Description: {{project.description}}</p>
+
+
+                </div>
+
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="col-md-0.5"></div>
     </div>
+
 </div>
 
 
