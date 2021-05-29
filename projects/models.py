@@ -19,6 +19,8 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    def search_by_title(self):
+
 
 class Profile(models.Model):
     user=models.OneToOneField(User, null=True, on_delete=models.CASCADE)
