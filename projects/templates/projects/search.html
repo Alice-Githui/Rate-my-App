@@ -16,7 +16,7 @@
             </div>
             <div class="row">
                 {% for project in projects %}
-                <div class="col-md-3 project-card">
+                <div class="col-md-4 project-card">
                     <img src="{{project.image.url}}">
                     <br>
                     <p class="searchedmessage"><a href="{% url 'viewproject' project.id %}">View Project Details</a></p>                 
