@@ -3,21 +3,21 @@
 {% load bootstrap3 %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid viewproject">
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div>
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div id="viewproject">
                 {% for project in project %}
+                <p class="text-center">Project Link: <a href="{{project.link}}">{{project.link}}</a></p>
+                <h4 class="text-center">Project Title: {{project.title}}</h4>
                 <img src="{{project.image.url}}" alt="{{project.description}}">
-                <p><a href="{{project.link}}">{{project.link}}</a></p>
-                <h4>{{project.title}}</h4>
-                <p>{{project.description}}</p>
+                <p class="text-center">Project Description: {{project.description}}</p>
                 {% endfor %}
             </div>
 
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
     </div>
 </div>
 
