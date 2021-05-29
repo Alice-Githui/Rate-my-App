@@ -5,6 +5,14 @@
 {% block content %}
 <div class="container-fluid">
     <h1>RATE MY PROJECT APP</h1>
+    <div>
+        {% for project in projects %}
+        <p>{{project.title}}</p>
+        <p><a href="{{project.link}}">{{project.link}}</a></p>
+        <img src="{{project.image.url}}" alt="{{project.description}}">
+        <p>{{project.description}}</p>
+        {% endfor %}
+    </div>
 </div>
 
 

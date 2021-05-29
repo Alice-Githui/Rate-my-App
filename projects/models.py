@@ -14,7 +14,7 @@ class Project(models.Model):
     design_rating=models.ManyToManyField(User, related_name="rate_design")
     usability_rating=models.ManyToManyField(User, related_name="rate_usability")
     content_rating=models.ManyToManyField(User, related_name="rate_content")
-    average_review=models.IntegerField()
+    average_review=models.IntegerField(default=0)
 
     def __str__(self):
         return self.title

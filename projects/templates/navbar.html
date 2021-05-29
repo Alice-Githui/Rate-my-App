@@ -14,7 +14,7 @@
                     <a class="nav-link" href="#">Features</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Make Submission</a>
+                    <a class="nav-link" href="{% url 'uploadproject' %}">Make Submission</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item dropdown">
