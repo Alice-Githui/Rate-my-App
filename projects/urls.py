@@ -9,5 +9,6 @@ urlpatterns=[
     path('login/', views.loginUser, name="loginuser"),
     path('logout/', views.logoutUser, name="logout"),
     path('createprofile/', CreateProfileView.as_view(), name="createprofile"),
-    path('uploadproject/', views.uploadProject, name="uploadproject")
+    path('uploadproject/', views.uploadProject, name="uploadproject"),
+    path('viewproect/<int:pk>/', views.viewProject, name="viewproject")
 ]

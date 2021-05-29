@@ -73,6 +73,12 @@ def uploadProject(request):
 
     return render(request, 'projects/uploadproject.html', {"form":form})
 
+def viewProject(request, pk):
+    project=Project.objects.filter(id=pk)
+    current_user=request.user
+
+    return render(request, 'projects/viewproject.html', {"project":project})
+
     
 class CreateProfileView(CreateView):
     model=Profile
