@@ -54,7 +54,7 @@ def logoutUser(request):
     logout(request)
     return redirect('index')
 
-@login_required
+@login_required(login_url='loginuser')
 def uploadProject(request):
     form=UploadNewProject()
     current_user=request.user
