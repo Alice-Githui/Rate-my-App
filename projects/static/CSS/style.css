@@ -1,10 +1,10 @@
-h1{
-    color: red;
-}
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Lato', sans-serif;
 }
 
 .userprofileimage{
@@ -41,6 +41,7 @@ h1{
 
 #registerform form{
     height: 370px;
+    border-radius: 5px;
 }
 
 #registerform label{
@@ -56,6 +57,10 @@ h1{
     background-color: #fafbfb;
 }
 
+.login{
+    background-color: #fafbfb;
+}
+
 #registerpanels{
     border: 1px solid gainsboro;
 }
@@ -68,4 +73,22 @@ h1{
     background-color: #222423;
 } */
 
+#login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    /* border: 1px solid gainsboro; */
+}
+
+#login-form form{
+    border: 1px solid gainsboro;
+    padding: 70px;
+    margin: 30px;
+    background-color: white;
+    height: 370px;
+    border-radius: 5px;
+}
 
