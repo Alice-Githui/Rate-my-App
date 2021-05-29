@@ -79,6 +79,15 @@ def viewProject(request, pk):
 
     return render(request, 'projects/viewproject.html', {"project":project})
 
+def viewUserProfile(request, pk):
+    user=Profile.objects.filter(user_id=pk)
+    print(user)
+    projects=Project.objects.filter(profile_id=pk)
+    print(projects)
+
+    return render(request, "projects/viewuserprofile.html", {"user":user, "projects":projects})
+
+
     
 class CreateProfileView(CreateView):
     model=Profile

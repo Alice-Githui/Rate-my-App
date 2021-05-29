@@ -10,5 +10,6 @@ urlpatterns=[
     path('logout/', views.logoutUser, name="logout"),
     path('createprofile/', CreateProfileView.as_view(), name="createprofile"),
     path('uploadproject/', views.uploadProject, name="uploadproject"),
-    path('viewproect/<int:pk>/', views.viewProject, name="viewproject")
+    path('viewproject/<int:pk>/', views.viewProject, name="viewproject"),
+    path('viewuserprofile/<int:pk>', views.viewUserProfile, name="viewuserprofile"),
 ]

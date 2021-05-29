@@ -27,7 +27,7 @@ class Profile(models.Model):
     contact=models.TextField()
 
     def __str__(self):
-        return self.name
+        return str(self.user)
 
     def get_absolute_url(self):
         return reverse('index')
