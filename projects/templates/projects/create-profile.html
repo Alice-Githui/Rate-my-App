@@ -3,16 +3,16 @@
 {% load bootstrap3 %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid createprofile">
     <div class="row">
         <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-6 createprofileform">
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 {% bootstrap_form form %}
 
-                <input type="submit" value="Submit" class="btn btn-success btn-block">
+                <input type="submit" value="Submit" class="btn btn-success btn-block btn-lg">
 
             </form>
 
