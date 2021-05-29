@@ -16,16 +16,19 @@ class Project(models.Model):
     content_rating=models.ManyToManyField(User, related_name="rate_content")
     average_review=models.IntegerField(default=0)
 
+
     def __str__(self):
         return self.title
 
-    def search_by_title(self):
+    def search_by_title(search_term):
+        projects=Project.objects.filter(title__icontains=search_term)
+        return projects
 
 
 class Profile(models.Model):
     user=models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     bio=models.TextField()
-    profile_pic=CloudinaryField('image')
+    profile_pic=CloudinaryField('image', blank=True)
     contact=models.TextField()
 
     def __str__(self):

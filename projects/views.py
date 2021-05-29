@@ -87,6 +87,18 @@ def viewUserProfile(request, pk):
 
     return render(request, "projects/viewuserprofile.html", {"user":user, "projects":projects})
 
+def searchProject(request):
+
+    if 'project' in request.GET and request.GET['project']:
+        search_term=request.GET.get('project')
+        searched_projects=Project.search_by_title(search_term)
+        message=f"{search_term}"
+
+        return render(request, "projects/search.html", {"projects":searched_projects, "message":message})
+    else:
+        message="You have not searched for any project"
+        return render(request, "projects/search")
+
 
     
 class CreateProfileView(CreateView):

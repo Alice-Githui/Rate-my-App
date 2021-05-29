@@ -9,7 +9,11 @@
         <div class="col-md-8">
             <div class="row">
                 {% for user in user %}
-                <img src="{{user.profile_pic.url}}" alt="{{user.user}}" id="userprofileimage">
+                {% if user.profile_pic.url %}
+                <img src="{{user.profile_pic.url}}" alt="{{user.user}}" class="userprofileimage">
+                {% else %}
+                <img src="../../static/Images/altprofilepic.jpeg" alt="woman designing on her laptop" class="userprofileimage">
+                {% endif %}
                 <p>Name: {{user.user}}</p>
                 <p>Bio: {{user.bio}}</p>
                 <p>Contact Details: {{user.contact}}</p>
