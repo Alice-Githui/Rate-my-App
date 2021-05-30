@@ -47,28 +47,31 @@
                     <button id="usability-eighth">8</button>
                     <button id="usability-ninth">9</button>
                     <button id="usability-tenth">10</button>
-                </form>           
-                
+                </form>
+                <span id="usability-confirm-box"></span>
             </div>
-            <br>
-            <div id="usability-confirm-box"></div>
             <br>
             <div class="content-rate">
                 <p>Content Rate:</p>
-                <span class="content-checked" id="content-first">1</span>
-                <span class="content-checked" id="content-second">2</span>
-                <span class="content-checked" id="content-third">3</span>
-                <span id="content-fourth">4</span>
-                <span id="content-fifth">5</span>
-                <span id="content-sixth">6</span>
-                <span id="content-seventh">7</span>
-                <span id="content-eighth">8</span>
-                <span id="content-ninth">9</span>
-                <span id="content-tenth">10</span>
+                <form method="POST" class="content-rate-form" action="">
+                    {% csrf_token %}
+                    <button id="content-first">1</button>
+                    <button id="content-second">2</button>
+                    <button id="content-third">3</button>
+                    <button id="content-fourth">4</button>
+                    <button id="content-fifth">5</button>
+                    <button id="content-sixth">6</button>
+                    <button id="content-seventh">7</button>
+                    <button id="content-eighth">8</button>
+                    <button id="content-ninth">9</button>
+                    <button id="content-tenth">10</button>
+                </form>
+                <span id="content-confirm-box"></span>
+
             </div>
             <br>
-            <div id="content-confirm-box"></div>
-
+            <br>
+            <br>
         </div>
         <div class="col-md-2"></div>
     </div>

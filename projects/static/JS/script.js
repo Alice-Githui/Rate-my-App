@@ -216,16 +216,6 @@ const handleButtonUsabilitySelect =(size) =>{
 const handleUsabilitySelect=(selection) =>{
     switch(selection){
         case 'usability-first':{
-            // designFirst.classList.add('design-checked')
-            // designSecond.classList.remove('design-checked')
-            // designThird.classList.remove('design-checked')
-            // designFourth.classList.remove('design-checked')
-            // designFifth.classList.remove('design-checked')
-            // designSixth.classList.remove('design-checked')
-            // designSeventh.classList.remove('design-checked')
-            // designEighth.classList.remove('design-checked')
-            // designNinth.classList.remove('design-checked')
-            // designTenth.classList.remove('design-checked')
             handleButtonUsabilitySelect(1)
             return
         }
@@ -325,6 +315,158 @@ if (usabilityFirst){
             const valueUsabilityNum=getUseNumericValue(useVal)
 
             usabilityConfirmBox.innerHTML =`<p>Usability: ${valueUsabilityNum}</p>`
+
+            // $.ajax({
+            //     type:'POST',
+            //     url:'/rateoneproject/',
+            //     data:{
+            //         'csrfmiddlewaretoken':csrf[0].value,
+            //         // 'el_id':id,
+            //         'val':valueNum
+            //     },
+            //     success: function(response){
+            //         console.log(response)
+            //         designConfirmBox.innerHTML=`<p>${response.design-rate}</p>`
+            //     },
+            //     error: function(error){
+            //         console.log(error)
+            //         designConfirmBox.innerHTML='<p>Oooops .... something went wrong </p>'
+            //     }
+            // })
+        })
+    }))
+
+}
+
+// CONTENT-RATING SYSTEM
+// get the forms
+const contentRateForm=document.querySelector('.content-rate-form')
+const contentConfirmBox=document.getElementById('content-confirm-box')
+//optimise the function to hover over the buttons and get that particular value
+const handleButtonContentSelect =(size) =>{
+    const contentChildren=contentRateForm.children
+    for (let i =0; i < contentChildren.length; i++){
+        if (i <= size){
+            contentChildren[i].classList.add('content-checked')
+        }
+        else{
+            contentChildren[i].classList.remove('content-checked')
+        } 
+    }
+}
+
+// function to change the background colour once someone hovers over a rating number
+const handleContentSelect=(selection) =>{
+    switch(selection){
+        case 'content-first':{
+            // designFirst.classList.add('design-checked')
+            // designSecond.classList.remove('design-checked')
+            // designThird.classList.remove('design-checked')
+            // designFourth.classList.remove('design-checked')
+            // designFifth.classList.remove('design-checked')
+            // designSixth.classList.remove('design-checked')
+            // designSeventh.classList.remove('design-checked')
+            // designEighth.classList.remove('design-checked')
+            // designNinth.classList.remove('design-checked')
+            // designTenth.classList.remove('design-checked')
+            handleButtonContentSelect(1)
+            return
+        }
+        case 'content-second':{
+            handleButtonContentSelect(2)
+            return
+        }
+        case 'content-third':{
+            handleButtonContentSelect(3)
+            return
+        }
+        case 'content-fourth':{
+            handleButtonContentSelect(4)
+            return
+        }
+        case 'content-fifth':{
+            handleButtonContentSelect(5)
+            return
+        }
+        case 'content-sixth':{
+            handleButtonContentSelect(6)
+            return
+        }
+        case 'content-seventh':{
+            handleButtonContentSelect(7)
+            return
+        }
+        case 'content-eighth':{
+            handleButtonContentSelect(8)
+            return
+        }
+        case 'content-ninth':{
+            handleButtonContentSelect(9)
+            return
+        }
+        case 'content-tenth':{
+            handleButtonContentSelect(10)
+            return
+        }
+    }
+}
+
+// change the values from string to numeric values
+const getConNumericValue=(stringValue) =>{
+    let numericConValue;
+    if (stringValue === 'content-first'){
+        numericConValue = 1
+    }
+    else if (stringValue === 'content-second'){
+        numericConValue=2
+    }
+    else if (stringValue === 'content-third'){
+        numericConValue=3
+    }
+    else if (stringValue === 'content-fourth'){
+        numericConValue=4
+    }
+    else if (stringValue==='content-fifth'){
+        numericConValue=5
+    }
+    else if (stringValue==='content-sixth'){
+        numericConValue=6
+    }
+    else if (stringValue==='content-seventh'){
+        numericConValue=7
+    }
+    else if (stringValue==='content-eighth'){
+        numericConValue=8
+    }
+    else if (stringValue==='content-ninth'){
+        numericConValue=9
+    }
+    else if (stringValue==='content-tenth'){
+        numericConValue=10
+    }
+    else{
+        numericConValue=0 
+    } 
+    return numericConValue  
+}
+
+if (contentFirst){
+    const contentArr=[contentFirst, contentSecond, contentThird, contentFourth, contentFifth, contentSixth, contentSeventh, contentEighth, contentNinth, contentTenth]
+
+    contentArr.forEach(item => item.addEventListener('mouseover', (event)=>{
+        handleContentSelect(event.target.id)
+    }))
+
+    contentArr.forEach(item => item.addEventListener('click', (event)=>{
+        const contentVal=event.target.id
+
+        contentRateForm.addEventListener('submit', (event)=>{
+            event.preventDefault()
+            // const id=event.target.id
+            // console.log(id)
+            const valueContentNum=getConNumericValue(contentVal)
+
+            contentConfirmBox.innerHTML =`<p>Content: ${valueContentNum}</p>`
 
             // $.ajax({
             //     type:'POST',

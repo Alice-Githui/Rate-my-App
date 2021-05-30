@@ -191,15 +191,15 @@
 }
 
 .design-checked{
-    background-color: red;
+    background-color: beige;
 }
 
 .usability-checked{
-    background-color: red;
+    background-color: beige;
 }
 
 .content-checked{
-    background-color: red;
+    background-color: beige;
 }
 
 .design-rate button{
@@ -216,7 +216,7 @@
     padding: 10px;
 }
 
-.content-rate span{
+.content-rate button{
     margin-left: 20px;
     font-size: 18px;
     border: 1px solid gainsboro;
