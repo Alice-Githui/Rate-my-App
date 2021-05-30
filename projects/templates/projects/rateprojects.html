@@ -9,6 +9,7 @@
         <div class="col-md-8">
             <div class="row">
                 {% for project in projects %}
+                <h5 id="overall-rating">Overall rating: </h5>
                 <img src="{{project.image.url}}" alt="{{project.title}}">
                 <p>View Project: <a href="{{project.link}}">{{project.link}}</a></p>
                 {% endfor %}
@@ -33,16 +34,21 @@
             <br>
             <div class="usability-rate">
                 <p>Usability Rate:</p>
-                <span class="usability-checked" id="usability-first">1</span>
-                <span class="usability-checked" id="usability-second">2</span>
-                <span class="usability-checked" id="usability-third">3</span>
-                <span class="usability-checked" id="usability-fourth">4</span>
-                <span id="usability-fifth">5</span>
-                <span id="usability-sixth">6</span>
-                <span id="usability-seventh">7</span>
-                <span id="usability-eighth">8</span>
-                <span id="usability-ninth">9</span>
-                <span id="usability-tenth">10</span>
+                <form action="" method="POST" class="usability-rate-form">
+                    {% csrf_token %}
+
+                    <button id="usability-first">1</button>
+                    <button id="usability-second">2</button>
+                    <button id="usability-third">3</button>
+                    <button id="usability-fourth">4</button>
+                    <button id="usability-fifth">5</button>
+                    <button id="usability-sixth">6</button>
+                    <button id="usability-seventh">7</button>
+                    <button id="usability-eighth">8</button>
+                    <button id="usability-ninth">9</button>
+                    <button id="usability-tenth">10</button>
+                </form>           
+                
             </div>
             <br>
             <div id="usability-confirm-box"></div>
