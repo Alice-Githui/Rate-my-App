@@ -14,10 +14,12 @@
                     <img src="{{project.image.url}}" alt="{{project.description}}">
                     <br>
                     <br>
-                    <button class="btn btn-success btn-lg btn-block"><a href="{% url 'viewproject' project.id %}"
-                            class="viewprojectbutton">VIEW PROJECT DETAILS</a></button>
+                    <button class="btn btn-success btn-lg btn-block"><a href="{% url 'rateproject' project.id %}"
+                            class="viewprojectbutton">RATE PROJECT</a></button>
                     <p>Project Link: <a href="{{project.link}}">{{project.link}}</a></p>
                     <p>Project Description: {{project.description}}</p>
+
+
 
 
                 </div>

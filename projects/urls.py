@@ -13,4 +13,6 @@ urlpatterns=[
     path('viewproject/<int:pk>/', views.viewProject, name="viewproject"),
     path('viewuserprofile/<int:pk>', views.viewUserProfile, name="viewuserprofile"),
     path('searchprojects/', views.searchProject, name="search_results"),
+    path('rateproject/<int:pk>/', views.rateProject, name="rateproject"),
+    path('rateoneproject/<int:pk>/', views.rateOneProject, name="rateoneproject"),
 ]

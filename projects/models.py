@@ -2,6 +2,7 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
@@ -11,9 +12,21 @@ class Project(models.Model):
     image=CloudinaryField('image')
     description=models.TextField()
     link=models.CharField(max_length=1000)
-    design_rating=models.ManyToManyField(User, related_name="rate_design")
-    usability_rating=models.ManyToManyField(User, related_name="rate_usability")
-    content_rating=models.ManyToManyField(User, related_name="rate_content")
+    design_rate=models.IntegerField(default=0,
+    validators=[
+        MaxValueValidator(10),
+        MinValueValidator(0)
+    ])
+    usability_rate=models.IntegerField(default=0,
+    validators=[
+        MaxValueValidator(10),
+        MinValueValidator(0)
+    ])
+    content_rate=models.IntegerField(default=0,
+    validators=[
+        MaxValueValidator(10),
+        MinValueValidator(0)
+    ])
     average_review=models.IntegerField(default=0)
 
 

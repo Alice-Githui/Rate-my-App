@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .forms import RegisterForm, CreateProfile, UploadNewProject
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -81,9 +81,7 @@ def viewProject(request, pk):
 
 def viewUserProfile(request, pk):
     user=Profile.objects.filter(user_id=pk)
-    print(user)
     projects=Project.objects.filter(profile_id=pk)
-    print(projects)
 
     return render(request, "projects/viewuserprofile.html", {"user":user, "projects":projects})
 
@@ -98,6 +96,23 @@ def searchProject(request):
     else:
         message="You have not searched for any project"
         return render(request, "projects/search")
+
+def rateProject(request, pk):
+    projects=Project.objects.filter(id=pk)
+    return render(request, 'projects/rateprojects.html', {"projects":projects})
+
+def rateOneProject(request,pk):
+    if request.method=="POST": 
+        # el_id=request.POST.get('el_id')   
+        val=request.POST.get('val')
+        project=Project.objects.get(id=pk)
+        project.design_rate=val
+        project.save()
+
+        return JsonResponse({'success':'true', 'design-rate':val}, safe=False)
+    else:
+        return JsonResponse({'success':'false'})
+
 
 
     
