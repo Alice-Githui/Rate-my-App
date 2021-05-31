@@ -5,17 +5,19 @@
 {% block content %}
 <div class="container-fluid rateproject">
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
             {% for project in projects %}
-            <div class="row">
+            <div class="row rateprojectrow">
                
                 <h5 id="overall-rating"></h5>
+                <p class="text-center">{{project.title}}</p>
+                <p class="text-center">View Project: <a href="{{project.link}}">{{project.link}}</a></p>
                 <img src="{{project.image.url}}" alt="{{project.title}}">
-                <p>View Project: <a href="{{project.link}}">{{project.link}}</a></p>
+                <p class="text-center">{{project.description}}</p>
                
             </div>
-            <div class="design-rate">
+            <div class="design-rate text-center">
                 <p>Design Rate:</p>
                 <form action="" class="design-rate-form" method="POST" id={{project.id}}>
                     {% csrf_token%}
@@ -33,7 +35,7 @@
                 <span id="design-confirm-box"></span>
             </div>
             <br>
-            <div class="usability-rate">
+            <div class="usability-rate text-center">
                 <p>Usability Rate:</p>
                 <form action="" method="POST" class="usability-rate-form" id={{project.id}}>
                     {% csrf_token %}
@@ -52,7 +54,7 @@
                 <span id="usability-confirm-box"></span>
             </div>
             <br>
-            <div class="content-rate">
+            <div class="content-rate text-center">
                 <p>Content Rate:</p>
                 <form method="POST" class="content-rate-form" action="" id={{project.id}}>
                     {% csrf_token %}
@@ -75,7 +77,7 @@
             <br>
             {% endfor %}
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
     </div>
 </div>
 
