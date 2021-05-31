@@ -7,16 +7,17 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
+            {% for project in projects %}
             <div class="row">
-                {% for project in projects %}
+               
                 <h5 id="overall-rating">Overall rating: </h5>
                 <img src="{{project.image.url}}" alt="{{project.title}}">
                 <p>View Project: <a href="{{project.link}}">{{project.link}}</a></p>
-                {% endfor %}
+               
             </div>
             <div class="design-rate">
                 <p>Design Rate:</p>
-                <form action="" class="design-rate-form" method="POST">
+                <form action="" class="design-rate-form" method="POST" id={{project.id}}>
                     {% csrf_token%}
                     <button id="design-first" type="submit">1</button>
                     <button id="design-second" type="submit">2</button>
@@ -72,6 +73,7 @@
             <br>
             <br>
             <br>
+            {% endfor %}
         </div>
         <div class="col-md-2"></div>
     </div>

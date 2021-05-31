@@ -166,30 +166,31 @@ if (designFirst){
 
         designRateForm.addEventListener('submit', (event)=>{
             event.preventDefault()
-            // const id=event.target.id
-            // console.log(id)
+            const id=event.target.id
+            console.log(id)
             const valueNum=getNumericValue(val)
-            console.log(valueNum)
+            // console.log(valueNum)
 
-            designConfirmBox.innerHTML =`<p>Design: ${valueNum}</p>`
+            // designConfirmBox.innerHTML =`<p>Design: ${valueNum}</p>`
 
-            // $.ajax({
-            //     type:'POST',
-            //     url:'/rateoneproject/',
-            //     data:{
-            //         'csrfmiddlewaretoken':csrf[0].value,
-            //         // 'el_id':id,
-            //         'val':valueNum
-            //     },
-            //     success: function(response){
-            //         console.log(response)
-            //         designConfirmBox.innerHTML=`<p>${response.design-rate}</p>`
-            //     },
-            //     error: function(error){
-            //         console.log(error)
-            //         designConfirmBox.innerHTML='<p>Oooops .... something went wrong </p>'
-            //     }
-            // })
+
+            $.ajax({
+                type:'POST',
+                url:'/rateoneproject/',
+                data:{
+                    'csrfmiddlewaretoken':csrf[0].value,
+                    'el_id':id,
+                    'val':valueNum
+                },
+                success: function(response){
+                    console.log(response)
+                    designConfirmBox.innerHTML=`<p>Design Rating:${response.designrate}</p>`
+                },
+                error: function(error){
+                    console.log(error)
+                    designConfirmBox.innerHTML='<p>Oooops .... something went wrong </p>'
+                }
+            })
         })
     }))
 
@@ -359,16 +360,6 @@ const handleButtonContentSelect =(size) =>{
 const handleContentSelect=(selection) =>{
     switch(selection){
         case 'content-first':{
-            // designFirst.classList.add('design-checked')
-            // designSecond.classList.remove('design-checked')
-            // designThird.classList.remove('design-checked')
-            // designFourth.classList.remove('design-checked')
-            // designFifth.classList.remove('design-checked')
-            // designSixth.classList.remove('design-checked')
-            // designSeventh.classList.remove('design-checked')
-            // designEighth.classList.remove('design-checked')
-            // designNinth.classList.remove('design-checked')
-            // designTenth.classList.remove('design-checked')
             handleButtonContentSelect(1)
             return
         }

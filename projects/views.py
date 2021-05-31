@@ -101,19 +101,19 @@ def rateProject(request, pk):
     projects=Project.objects.filter(id=pk)
     return render(request, 'projects/rateprojects.html', {"projects":projects})
 
-def rateOneProject(request,pk):
+def rateOneProject(request):
+    current_user=request.user
     if request.method=="POST": 
-        # el_id=request.POST.get('el_id')   
+        el_id=request.POST.get('el_id')   
         val=request.POST.get('val')
-        project=Project.objects.get(id=pk)
+        print(val)
+        project=Project.objects.get(id=el_id)
         project.design_rate=val
         project.save()
 
-        return JsonResponse({'success':'true', 'design-rate':val}, safe=False)
+        return JsonResponse({'success':'true', 'designrate':val}, safe=False)
     else:
         return JsonResponse({'success':'false'})
-
-
 
     
 class CreateProfileView(CreateView):
