@@ -5,30 +5,26 @@
 {% block content %}
 <div class="container-fluid indexpage">
     <div class="row">
-        <div class="col-md-0.5"></div>
-        <div class="col-md-11">
-            <div>
-                {% for project in projects %}
-                <div class="indexprojects-card col-md-4">
-                    <p>Project Title: {{project.title}}</p>
-                    <img src="{{project.image.url}}" alt="{{project.description}}">
-                    <br>
-                    <br>
-                    <button class="btn btn-success btn-lg btn-block"><a href="{% url 'rateproject' project.id %}"
-                            class="viewprojectbutton">RATE PROJECT</a></button>
-                    <p>Project Link: <a href="{{project.link}}">{{project.link}}</a></p>
-                    <p>Project Description: {{project.description}}</p>
+        <div>
+            {% for project in projects %}
+            <div class="indexprojects-card col-md-6">
+                <h3 style="text-transform: uppercase;">Project Title: {{project.title}}</h3>
+                <a href="{% url 'viewproject' project.id %}"><img src="{{project.image.url}}" alt="{{project.description}}"></a>
+                <br>
+                <br>
+                <button class="btn btn-success btn-lg btn-block"><a href="{% url 'rateproject' project.id %}"
+                        class="viewprojectbutton">RATE PROJECT</a></button>
+                <p>Project Link: <a href="{{project.link}}">{{project.link}}</a></p>
+                <!-- <p>Project Description: {{project.description}}</p> -->
 
 
 
 
-                </div>
-
-                {% endfor %}
             </div>
 
+            {% endfor %}
         </div>
-        <div class="col-md-0.5"></div>
+
     </div>
 
 </div>

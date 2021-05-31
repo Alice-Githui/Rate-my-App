@@ -97,16 +97,11 @@
     border-radius: 5px;
 }
 
-.indexprojects-card{
-    border: 1px solid gainsboro;
-    margin-left: 20px;
-}
-
 .indexprojects-card img{
-    height: 250px;
+    height: 300px;
     width: 100%;
     object-fit: cover;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .indexprojects-card{
