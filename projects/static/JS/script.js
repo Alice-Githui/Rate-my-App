@@ -163,9 +163,13 @@ if (designFirst){
     designArr.forEach(item => item.addEventListener('click', (event)=>{
         const val=event.target.id
 
-
+        let isSubmit=false
         designRateForm.addEventListener('submit', (event)=>{
             event.preventDefault()
+            if(isSubmit){
+                return 
+            }
+            isSubmit=true
             const id=event.target.id
             console.log(id)
             const valueNum=getNumericValue(val)
@@ -304,9 +308,15 @@ if (usabilityFirst){
     usabilityArr.forEach(item => item.addEventListener('click', (event)=>{
         const useVal=event.target.id
 
-
+        let isSubmit=false
         usabilityRateForm.addEventListener('submit', (event)=>{
             event.preventDefault()
+
+            if (isSubmit){
+                return
+            }
+            isSubmit=true
+
             const id=event.target.id
             console.log(id)
             const valueUsabilityNum=getUseNumericValue(useVal)
@@ -445,8 +455,15 @@ if (contentFirst){
     contentArr.forEach(item => item.addEventListener('click', (event)=>{
         const contentVal=event.target.id
 
+        let isSubmit=false
         contentRateForm.addEventListener('submit', (event)=>{
             event.preventDefault()
+
+            if(isSubmit){
+                return
+            }
+            isSubmit=true
+            
             const id=event.target.id
             console.log(id)
             const valueContentNum=getConNumericValue(contentVal)
