@@ -33,6 +33,12 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    def save_project(self):
+        self.save()
+
+    def delete_project(self):
+        self.delete()
+
     def search_by_title(search_term):
         projects=Project.objects.filter(title__icontains=search_term)
         return projects
