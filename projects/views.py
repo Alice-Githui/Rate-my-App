@@ -96,10 +96,12 @@ def searchProject(request):
     else:
         message="You have not searched for any project"
         return render(request, "projects/search")
-
+        
+@login_required(login_url='loginuser')
 def rateProject(request, pk):
     projects=Project.objects.filter(id=pk)
     return render(request, 'projects/rateprojects.html', {"projects":projects})
+
 
 def rateOneProject(request):
     current_user=request.user
