@@ -54,7 +54,7 @@
             <br>
             <div class="content-rate">
                 <p>Content Rate:</p>
-                <form method="POST" class="content-rate-form" action="">
+                <form method="POST" class="content-rate-form" action="" id={{project.id}}>
                     {% csrf_token %}
                     <button id="content-first">1</button>
                     <button id="content-second">2</button>

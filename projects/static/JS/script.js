@@ -447,29 +447,29 @@ if (contentFirst){
 
         contentRateForm.addEventListener('submit', (event)=>{
             event.preventDefault()
-            // const id=event.target.id
-            // console.log(id)
+            const id=event.target.id
+            console.log(id)
             const valueContentNum=getConNumericValue(contentVal)
 
             contentConfirmBox.innerHTML =`<p>Content: ${valueContentNum}</p>`
 
-            // $.ajax({
-            //     type:'POST',
-            //     url:'/rateoneproject/',
-            //     data:{
-            //         'csrfmiddlewaretoken':csrf[0].value,
-            //         // 'el_id':id,
-            //         'val':valueNum
-            //     },
-            //     success: function(response){
-            //         console.log(response)
-            //         designConfirmBox.innerHTML=`<p>${response.design-rate}</p>`
-            //     },
-            //     error: function(error){
-            //         console.log(error)
-            //         designConfirmBox.innerHTML='<p>Oooops .... something went wrong </p>'
-            //     }
-            // })
+            $.ajax({
+                type:'POST',
+                url:'/ratecontentproject/',
+                data:{
+                    'csrfmiddlewaretoken':csrf[0].value,
+                    'el_id':id,
+                    'contentVal':valueContentNum
+                },
+                success: function(response){
+                    console.log(response)
+                    contentConfirmBox.innerHTML=`<p>Content Rating: ${response.contentrate}</p>`
+                },
+                error: function(error){
+                    console.log(error)
+                    contentConfirmBox.innerHTML='<p>Oooops .... something went wrong </p>'
+                }
+            })
         })
     }))
 
