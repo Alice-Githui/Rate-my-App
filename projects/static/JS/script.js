@@ -41,8 +41,6 @@ const designRateForm=document.querySelector('.design-rate-form')
 const designConfirmBox=document.getElementById('design-confirm-box')
 // get the csrf
 const csrf=document.getElementsByName('csrfmiddlewaretoken')
-// get overall rating
-const overallRating=document.getElementById('overall-rating')
 
 // DESIGN RATING 
 //optimise the function to hover over the buttons and get that particular value
@@ -463,7 +461,7 @@ if (contentFirst){
                 return
             }
             isSubmit=true
-            
+
             const id=event.target.id
             console.log(id)
             const valueContentNum=getConNumericValue(contentVal)

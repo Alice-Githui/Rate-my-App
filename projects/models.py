@@ -50,6 +50,9 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return reverse('index')
 
+    def save_profile(self):
+        self.save()
+
 
 class Rating(models.Model):
     design=models.ForeignKey(Project, related_name="design_rated", on_delete=models.CASCADE)
