@@ -53,6 +53,9 @@ class Profile(models.Model):
     def save_profile(self):
         self.save()
 
+    def delete_profile(self):
+        self.delete()
+
 
 class Rating(models.Model):
     design=models.ForeignKey(Project, related_name="design_rated", on_delete=models.CASCADE)

@@ -18,3 +18,9 @@ class ProfileTestClass(TestCase):
         User.objects.all().delete()
         Profile.objects.all().delete()
 
+    def test_delete_profile(self):
+        profiles=Profile.objects.all()
+
+        self.alice.delete_profile()
+        self.assertEqual(len(profiles), 0)
+
