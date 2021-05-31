@@ -169,10 +169,6 @@ if (designFirst){
             const id=event.target.id
             console.log(id)
             const valueNum=getNumericValue(val)
-            // console.log(valueNum)
-
-            // designConfirmBox.innerHTML =`<p>Design: ${valueNum}</p>`
-
 
             $.ajax({
                 type:'POST',
@@ -311,29 +307,27 @@ if (usabilityFirst){
 
         usabilityRateForm.addEventListener('submit', (event)=>{
             event.preventDefault()
-            // const id=event.target.id
-            // console.log(id)
+            const id=event.target.id
+            console.log(id)
             const valueUsabilityNum=getUseNumericValue(useVal)
 
-            usabilityConfirmBox.innerHTML =`<p>Usability: ${valueUsabilityNum}</p>`
-
-            // $.ajax({
-            //     type:'POST',
-            //     url:'/rateoneproject/',
-            //     data:{
-            //         'csrfmiddlewaretoken':csrf[0].value,
-            //         // 'el_id':id,
-            //         'val':valueNum
-            //     },
-            //     success: function(response){
-            //         console.log(response)
-            //         designConfirmBox.innerHTML=`<p>${response.design-rate}</p>`
-            //     },
-            //     error: function(error){
-            //         console.log(error)
-            //         designConfirmBox.innerHTML='<p>Oooops .... something went wrong </p>'
-            //     }
-            // })
+            $.ajax({
+                type:'POST',
+                url:'/rateuseproject/',
+                data:{
+                    'csrfmiddlewaretoken':csrf[0].value,
+                    'el_id':id,
+                    'useVal':valueUsabilityNum
+                },
+                success: function(response){
+                    console.log(response)
+                    usabilityConfirmBox.innerHTML=`<p>Usability Rating:${response.usabilityrate}</p>`
+                },
+                error: function(error){
+                    console.log(error)
+                    usabilityConfirmBox.innerHTML='<p>Oooops .... something went wrong </p>'
+                }
+            })
         })
     }))
 

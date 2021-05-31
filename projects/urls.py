@@ -15,4 +15,5 @@ urlpatterns=[
     path('searchprojects/', views.searchProject, name="search_results"),
     path('rateproject/<int:pk>/', views.rateProject, name="rateproject"),
     path('rateoneproject/', views.rateOneProject, name="rateoneproject"),
+    path('rateuseproject/', views.rateUseProject, name="rateuseproject"),
 ]

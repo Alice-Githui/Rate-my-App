@@ -106,12 +106,42 @@ def rateOneProject(request):
     if request.method=="POST": 
         el_id=request.POST.get('el_id')   
         val=request.POST.get('val')
-        print(val)
+        # print(val)
         project=Project.objects.get(id=el_id)
         project.design_rate=val
         project.save()
 
-        return JsonResponse({'success':'true', 'designrate':val}, safe=False)
+        return JsonResponse({'success':'true', 'designrate':val, "usabilityrate":value}, safe=False)
+    else:
+        return JsonResponse({'success':'false'})
+
+
+def rateUseProject(request):
+    current_user=request.user
+    if request.method=="POST": 
+        el_id=request.POST.get('el_id')   
+        val=request.POST.get('useVal')
+        print(val)
+        project=Project.objects.get(id=el_id)
+        project.usability_rate=val
+        project.save()
+
+        return JsonResponse({'success':'true', 'usabilityrate':val}, safe=False)
+    else:
+        return JsonResponse({'success':'false'})
+
+
+def rateContentProject(request):
+    current_user=request.user
+    if request.method=="POST": 
+        el_id=request.POST.get('el_id')   
+        val=request.POST.get('useVal')
+        print(val)
+        project=Project.objects.get(id=el_id)
+        project.usability_rate=val
+        project.save()
+
+        return JsonResponse({'success':'true', 'usabilityrate':val}, safe=False)
     else:
         return JsonResponse({'success':'false'})
 

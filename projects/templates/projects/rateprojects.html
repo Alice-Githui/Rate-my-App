@@ -35,7 +35,7 @@
             <br>
             <div class="usability-rate">
                 <p>Usability Rate:</p>
-                <form action="" method="POST" class="usability-rate-form">
+                <form action="" method="POST" class="usability-rate-form" id={{project.id}}>
                     {% csrf_token %}
 
                     <button id="usability-first">1</button>
