@@ -22,8 +22,7 @@ import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -33,7 +32,7 @@ MODE=config("MODE",default="dev")
 SECRET_KEY ='django-insecure-qiowaqq9rba#+7)pk=01v)l1=h4zcu_4@o0()0tp#z71kk%fs_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =config('DEBUG',default=False, cast=bool)
+DEBUG =config('DEBUG',default=False,cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -150,29 +149,29 @@ LOGIN_REDIRECT_URL="/"
 
 
 # Static files (CSS, JavaScript, Images)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+# https://docs.djangoproject.com/en/3.2/howto/static-files
+STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL='/static/'
+# Extra places for collectstatic to find static files
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR, 'static'),
+)
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # configuration for media
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 
+# cloudinary configuration
 cloudinary.config(
     cloud_name='letewaa',
     api_key='156367496441819',
     api_secret='r2kdLG-DQFGEMGmnU50SVP9Nrko',
 )
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#configure Django App for Heroku
 django_heroku.settings(locals())
